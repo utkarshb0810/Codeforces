@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    int count = 0;
+    int totalSum = 0;
+    int sum = 0;
+     if (n == 1)
+    {
+        cout << 1 << endl;
+    }
+    else if (n == 2)
+    {
+        if (arr[0] == arr[1])
+        {
+            cout << 2 << endl;
+        }
+        else
+        {
+            cout << 1 << endl;
+        }
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            totalSum += arr[i];
+        }
+        sort(arr, arr + n);
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (arr[i] < totalSum && totalSum  >= sum)
+            {
+ 
+                count++;
+            }
+            sum = sum + arr[i];
+            totalSum = totalSum - arr[i];
+        }
+        cout << count << endl;
+    }
+    return 0;
+}
