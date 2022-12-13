@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+   int t;
+   cin>>t;
+   while(t--){
+    long long int n;
+    cin>>n;
+    string str;
+    cin>>str;
+    long long int cost = 0;
+    for(long long int i = 1;i<=n;i++){
+        long long int  count = 1;
+        while(count*i <=n){
+            if(str[(count*i)-1] == '1'){
+                break;
+            }
+            if(str[(count*i)-1] == '0'){
+                cost += i;
+            }
+            str[(count*i)-1] = '#';
+            count++;
+        }
+    }
+        cout<<cost<<endl;
+    }
+   return 0;
+}
